@@ -1,8 +1,14 @@
 ---
 # tasks file for lxde
-- hosts: localhost
-  tasks:
-    - name: Install DE
-      ansible.builtin.package:
-        name: lxde
-        state: present 
+
+- name: Install DE
+  ansible.builtin.package:
+    name: lxde
+    state: present
+
+- name: Configure xinitrc
+  copy:
+    src: "{{ role_path }}/files/xinitrc"
+    dest: /home/{{ username }}/.xinitrc
+    mode: 0755
+        
