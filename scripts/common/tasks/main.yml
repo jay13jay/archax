@@ -1,0 +1,14 @@
+---
+# tasks file for common
+- hosts: localhost
+  tasks:
+    - name: Install vim
+      ansible.builtin.package:
+          name: vim
+          state: present
+
+    - name: configure user
+      ansible.builtin.user:
+        name: {{ username }}
+        comment: main user
+        groups: users

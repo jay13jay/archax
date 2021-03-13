@@ -1,0 +1,9 @@
+---
+# Basic playbook with the bare minimum software to get started
+- hosts: localhost
+  roles:
+    - common
+    - lxde
+
+  tasks:
+    
