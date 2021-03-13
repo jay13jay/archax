@@ -1,0 +1,20 @@
+---
+# Basic playbook with the bare minimum software to get started
+- hosts: localhost
+
+  tasks:
+    - name: Install VIM
+      ansible.builtin.package:
+        name: vim
+        state: present
+
+    - name: Install DE
+      ansible.builtin.package:
+        name: lxde
+        state: present 
+
+    - name: configure user
+      ansible.builtin.user:
+        name: jay
+        comment: main user
+        groups: users
