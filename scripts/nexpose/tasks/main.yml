@@ -1,0 +1,13 @@
+---
+# tasks file for nexpose
+
+- name: Download Nexpose 64-Bit Package
+  get_url:
+    url: "{{ nexpose_download_url + nexpose_filename }}"
+    dest: /usr/src/nexpose/"{{ nexpose_filename }}""
+    mode: 0755
+  register: nexpose_out
+
+- name: Echo
+  shell: echo "Nexpose Downloaded"
+  when: nexpose_out.changed

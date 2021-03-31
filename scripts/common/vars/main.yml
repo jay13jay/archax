@@ -1,3 +1,10 @@
 ---
 # vars file for common
 username: jay
+
+packages:
+  - which
+  - vim
+  - wget
+  - git
+  - lsof
