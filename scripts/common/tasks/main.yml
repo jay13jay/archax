@@ -16,6 +16,13 @@
   with_items:
     "{{ packages }}"
 
+- name: Install Common PIP Pacckages
+  pip:
+    name: "{{ item }}"
+  with_items:
+    - "{{ pip_packages }}"
+
+
 - name: configure user
   ansible.builtin.user:
     name: "{{ username }}"
