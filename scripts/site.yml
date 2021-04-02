@@ -3,6 +3,6 @@
 - hosts: localhost
 
   roles:
-    - common
-    - lxde
+    # - common
+    # - lxde
     - nexpose
