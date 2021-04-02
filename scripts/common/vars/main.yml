@@ -8,3 +8,9 @@ packages:
   - wget
   - git
   - lsof
+  - python-pip
+
+pip_packages:
+  - pexpect
+  - requests
+  - bs4

@@ -1,37 +1,75 @@
 Nexpose Install
 =========
 
-Install Nexpose (NOT DONE)
-Requirements
+Install Nexpose
+
+## Notes
+___
+- Module in development
+- The download takes a while (around 10 mins@3-4MB/s)
+- The install takes even longer (didn't even time it, just walked away and came back later)
+- vars/main.yml needs to be modified with your information for this to run
+  - I have gone back and forth on whether to put default values for the required vars or not, if you have an opinion feel free to create an issue on github and I will take it into account
+  
+
+## Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+- *unix install
+  - tested on Arch and Centos 7
 
-Role Variables
+## Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+Role Variables are the following:
+```
+nexpose_product_key: XXXX-XXXX-XXXX-XXXX
+nexpose_download_url: https://download2.rapid7.com/download/InsightVM/
+nexpose_filename: Rapid7Setup-Linux64.bin
 
-Dependencies
-------------
+# Nexpose SSL cert info:
+first_name: [FIRST NAME]
+last_name: [LAST NAME]
+company: [COMPANY NAME]
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+# Nexpose auth info
+user: [USERNAME]
+password: [PASSWORD]
+require_reset: "n"
+```
+- nexpose_product_key
+  - First things first, you need a non-free email account, so you need to use an email from a domain you own. Gmail, yahoo, etc emails will not work
+  - If you do not own a domain name you can use for this, you can use the following service:
+  https://temp-mail.org
+  - you get the install from downloading nexpose from their website:
+    ```
+    https://www.rapid7.com/try/nexpose/
+    ```
+    - This should already be configured in the role, however, you just need to double check the configured variables and input your product key emailed to you when signing up
+  
 
-Example Playbook
+## Dependencies
+___
+
+None (so far)
+
+## Example Playbook
 ----------------
-
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - nexpose
 
-License
+## License
 -------
 
 BSD
 
-Author Information
+### Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Name: Josh Hackney
+
+Email: jhaxllc@gmail.com
+
+github: https://github.com/jay13yaj
